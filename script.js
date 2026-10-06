@@ -2,7 +2,7 @@
   'use strict';
 
   // Contact email used by the request form (mailto). Replace with the real one.
-  const CONTACT_EMAIL = 'hola@peritae.es';
+  const CONTACT_EMAIL = 'hola@peritae.eus';
 
   const BLOCKS = [
     { n: 1, t: 'Estructura y elementos constructivos', p: '≈25 puntos',
@@ -126,6 +126,60 @@
   } else {
     items.forEach((el) => el.classList.add('in'));
   }
+
+  // Price calculator (tarifas del plan económico, IVA incluido)
+  const SIZES = ['Hasta 100 m²', '100 – 199 m²', '200 – 299 m²', 'Más de 300 m²'];
+  const SERVICES = [
+    { id: 'informe', n: 'Informe Peritae', p: [329, 369, 419, 499], req: true },
+    { id: 'cee', n: 'Certificado de eficiencia energética', p: [95, 125, 155, 195] },
+    { id: 'pre', n: 'Pre-informe IA', p: [69, 89, 99, 119] }
+  ];
+  const eur = (n) => n.toLocaleString('es-ES') + ' €';
+  const sizeBox = document.getElementById('calcSize');
+  const svcBox = document.getElementById('calcSvc');
+  const state = { size: 0, svc: new Set(['informe']) };
+
+  SIZES.forEach((t, i) => {
+    sizeBox.insertAdjacentHTML('beforeend',
+      `<label class="opt"><input type="radio" name="size" value="${i}"${i === 0 ? ' checked' : ''}><span>${t}</span></label>`);
+  });
+  SERVICES.forEach((s) => {
+    svcBox.insertAdjacentHTML('beforeend',
+      `<label class="opt"><input type="checkbox" value="${s.id}"${s.id === 'informe' ? ' checked' : ''}><span>${s.n}</span><b data-p="${s.id}"></b></label>`);
+  });
+  document.querySelectorAll('[data-from]').forEach((el) => {
+    const s = SERVICES.find((x) => x.id === el.dataset.from);
+    el.textContent = eur(s.p[0]);
+  });
+
+  const renderCalc = () => {
+    let total = 0;
+    const lines = [];
+    SERVICES.forEach((s) => {
+      const price = s.p[state.size];
+      svcBox.querySelector(`[data-p="${s.id}"]`).textContent = eur(price);
+      if (state.svc.has(s.id)) { total += price; lines.push(`<li><span>${s.n}</span><b>${eur(price)}</b></li>`); }
+    });
+    document.getElementById('calcTotal').textContent = eur(total);
+    document.getElementById('calcLines').innerHTML = lines.join('') || '<li><span>Selecciona un servicio</span></li>';
+  };
+  sizeBox.addEventListener('change', (e) => { state.size = +e.target.value; renderCalc(); });
+  svcBox.addEventListener('change', (e) => {
+    e.target.checked ? state.svc.add(e.target.value) : state.svc.delete(e.target.value);
+    renderCalc();
+  });
+  renderCalc();
+
+  // Prefill the request form from the calculator
+  document.getElementById('calcCta').addEventListener('click', () => {
+    const f = document.getElementById('form');
+    f.m2.value = SIZES[state.size];
+    const has = (id) => state.svc.has(id);
+    const label = has('informe')
+      ? (has('cee') && has('pre') ? 'Informe + Certificado + Pre-informe IA' : has('cee') ? 'Informe Peritae + Certificado energético' : has('pre') ? 'Informe Peritae + Pre-informe IA' : 'Informe Peritae')
+      : (has('cee') && has('pre') ? null : has('cee') ? 'Solo Certificado energético' : has('pre') ? 'Solo Pre-informe IA' : null);
+    if (label) f.servicio.value = label;
+  });
 
   // Request form -> opens the user's mail client with the data prefilled
   const form = document.getElementById('form');

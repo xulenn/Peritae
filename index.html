@@ -33,7 +33,7 @@
       <a href="#proceso">Proceso</a>
       <a href="#checklist">Qué revisamos</a>
       <a href="#informe">El informe</a>
-      <a href="#extras">Servicios extra</a>
+      <a href="#extras">Tarifas</a>
       <a href="#faq">Preguntas</a>
       <a class="btn btn--sm btn--accent nav__cta" href="#contacto">Solicitar inspección</a>
     </nav>
@@ -222,29 +222,54 @@
   </div>
 </section>
 
-<!-- EXTRAS -->
+<!-- TARIFAS -->
 <section class="sec" id="extras">
   <div class="wrap">
-    <div class="sec__head reveal">
-      <p class="eyebrow">Servicios adicionales</p>
-      <h2>Después de la inspección, <em>el siguiente paso</em></h2>
-      <p class="sub">Lo que ningún otro servicio de inspección integra: saber qué cuesta reformar y cómo podría quedar.</p>
+    <div class="sec__head sec__head--center reveal">
+      <p class="eyebrow">Servicios y tarifas</p>
+      <h2>Precio cerrado, <em>según los metros</em> de tu vivienda</h2>
+      <p class="sub">Sin sorpresas: la tarifa depende solo de la superficie y ya incluye IVA. Elige lo que necesitas y calcula el total.</p>
     </div>
-    <div class="extras">
-      <article class="xcard reveal">
-        <span class="tag">Add-on 1</span>
+
+    <div class="services">
+      <article class="svc svc--main reveal">
+        <span class="tag tag--light">Servicio principal</span>
+        <h3>Informe Peritae</h3>
+        <p>Inspección técnica completa con arquitecto colegiado, 210 puntos de control, informe priorizado con coste por defecto en 48 h y llamada explicativa.</p>
+        <div class="svc__from">desde <b data-from="informe">329 €</b></div>
+      </article>
+      <article class="svc reveal" style="--d:.08s">
+        <span class="tag">Complemento</span>
         <h3>Certificado de eficiencia energética</h3>
-        <p>Obligatorio para vender o alquilar. Aprovechamos la visita: el técnico ya ha caracterizado envolvente e instalaciones.</p>
-        <ul><li>Toma de datos y certificación con programa reconocido</li><li>Registro ante el Gobierno Vasco</li><li>Etiqueta energética oficial</li></ul>
-        <small>Ejecución de mejoras y subvenciones no incluidas.</small>
+        <p>Obligatorio para vender o alquilar. Toma de datos, certificación con programa reconocido, registro en el Gobierno Vasco y etiqueta oficial.</p>
+        <div class="svc__from">desde <b data-from="cee">95 €</b></div>
       </article>
-      <article class="xcard xcard--feat reveal" style="--d:.1s">
-        <span class="tag tag--light">Add-on 2 · Con IA</span>
-        <h3>Estudio de reforma con IA</h3>
-        <p>Parte de los defectos de tu informe y de las superficies medidas para responder: ¿cuánto cuesta dejarla lista, y cómo podría quedar?</p>
-        <ul><li>Estimación de coste para poner la vivienda en condiciones de habitabilidad</li><li>Visualización generada por IA del resultado, para anuncio o toma de decisión</li></ul>
-        <small>La visualización es una recreación orientativa, no un proyecto ni un compromiso de resultado. La estimación no es un presupuesto de obra vinculante.</small>
+      <article class="svc reveal" style="--d:.16s">
+        <span class="tag">Sin visita · Con IA</span>
+        <h3>Pre-informe IA</h3>
+        <p>Una primera valoración rápida y orientativa de la vivienda, sin necesidad de visita, para decidir si merece la pena avanzar. Se contrata y paga online.</p>
+        <div class="svc__from">desde <b data-from="pre">69 €</b></div>
       </article>
+    </div>
+
+    <div class="calc reveal">
+      <div class="calc__in">
+        <fieldset class="calc__col">
+          <legend>1 · Superficie de la vivienda</legend>
+          <div class="opts" id="calcSize"></div>
+        </fieldset>
+        <fieldset class="calc__col">
+          <legend>2 · Servicios</legend>
+          <div class="opts opts--stack" id="calcSvc"></div>
+        </fieldset>
+        <div class="calc__total">
+          <small>Total · IVA incluido</small>
+          <strong id="calcTotal" aria-live="polite">329 €</strong>
+          <ul id="calcLines"></ul>
+          <a class="btn btn--accent btn--block" href="#contacto" id="calcCta">Solicitar con esta selección</a>
+        </div>
+      </div>
+      <p class="calc__note">Tarifas con IVA (21 %) incluido. El Pre-informe IA y la visualización son orientativos: no constituyen proyecto, presupuesto de obra vinculante ni compromiso de resultado.</p>
     </div>
   </div>
 </section>
@@ -276,7 +301,7 @@
       <h2>Lo que suelen preguntarnos</h2>
     </div>
     <div class="acc acc--lg reveal" style="--d:.08s">
-      <details><summary>¿Cuánto dura la inspección?</summary><p>Entre 2 y 3 horas según el tamaño de la vivienda. Trabajamos con pisos y unifamiliares de hasta 300 m² en Bizkaia.</p></details>
+      <details><summary>¿Cuánto dura la inspección?</summary><p>Entre 2 y 3 horas según el tamaño de la vivienda. Trabajamos con pisos y unifamiliares en Bizkaia; el precio depende de la superficie.</p></details>
       <details><summary>¿Cuándo recibo el informe?</summary><p>En un máximo de 48 horas tras la visita. Prometemos un plazo que podemos cumplir sin sacrificar la calidad del análisis.</p></details>
       <details><summary>¿Necesito estar presente en la visita?</summary><p>Te recomendamos acompañarnos si puedes, pero no es imprescindible. Al inicio firmamos un acta con quién estaba presente y qué zonas no se pudieron inspeccionar.</p></details>
       <details><summary>¿Tengo que pedir permiso al vendedor?</summary><p>Hay que coordinar el acceso con el propietario o la inmobiliaria. Nosotros nos encargamos de organizar la cita para que la gestión sea sencilla.</p></details>
@@ -296,9 +321,14 @@
       <p class="sub sub--light">Cuéntanos la vivienda y te respondemos con tarifa, fecha disponible y siguientes pasos. Sin compromiso.</p>
       <ul class="cta__pts">
         <li>Respuesta rápida con una propuesta clara</li>
-        <li>Tarifa cerrada según la superficie</li>
+        <li>Tarifa cerrada según la superficie, IVA incluido</li>
         <li>Visita coordinada con el vendedor</li>
       </ul>
+      <div class="cta__contact">
+        <a href="tel:+34944000000"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>+34 944 000 000</a>
+        <a href="mailto:hola@peritae.eus"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hola@peritae.eus</a>
+        <span>Bilbao, Bizkaia · L–V 9:00–18:00</span>
+      </div>
     </div>
     <form class="form reveal" id="form" style="--d:.1s" novalidate>
       <div class="row">
@@ -310,7 +340,7 @@
         <label>Municipio de la vivienda<input name="municipio" required placeholder="Ej. Bilbao, Getxo…"></label>
         <label>Superficie aproximada
           <select name="m2" required>
-            <option value="">Selecciona</option><option>Menos de 100 m²</option><option>100 – 199 m²</option><option>200 – 300 m²</option>
+            <option value="">Selecciona</option><option>Hasta 100 m²</option><option>100 – 199 m²</option><option>200 – 299 m²</option><option>Más de 300 m²</option>
           </select>
         </label>
       </div>
@@ -319,7 +349,7 @@
           <select name="perfil"><option>Comprador para vivir</option><option>Inversor</option></select>
         </label>
         <label>Servicio
-          <select name="servicio"><option>Inspección técnica</option><option>Inspección + Certificado energético</option><option>Inspección + Estudio de reforma con IA</option><option>Inspección + ambos</option></select>
+          <select name="servicio"><option>Informe Peritae</option><option>Informe Peritae + Certificado energético</option><option>Informe Peritae + Pre-informe IA</option><option>Informe + Certificado + Pre-informe IA</option><option>Solo Certificado energético</option><option>Solo Pre-informe IA</option></select>
         </label>
       </div>
       <label>Cuéntanos algo más <small>(opcional)</small><textarea name="msg" rows="3" placeholder="Enlace del anuncio, plazos, dudas…"></textarea></label>
@@ -336,9 +366,9 @@
   <div class="wrap footer__in">
     <div>
       <a class="logo logo--light" href="#top"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M8 24V11l8-5 8 5v13" fill="none" stroke="#0f2a2b" stroke-width="2" stroke-linejoin="round"/><path d="M12.500 24v-6h7v6" fill="none" stroke="#e08a5b" stroke-width="2" stroke-linejoin="round"/></svg><span>Peritae</span></a>
-      <p>Inspección técnica de vivienda pre-compra en Bizkaia.</p>
+      <p>Inspección técnica de vivienda pre-compra en Bizkaia.</p><p><a href="tel:+34944000000">+34 944 000 000</a><br><a href="mailto:hola@peritae.eus">hola@peritae.eus</a></p>
     </div>
-    <nav aria-label="Pie"><a href="#servicio">Servicio</a><a href="#proceso">Proceso</a><a href="#checklist">Qué revisamos</a><a href="#extras">Servicios extra</a><a href="#faq">Preguntas</a></nav>
+    <nav aria-label="Pie"><a href="#servicio">Servicio</a><a href="#proceso">Proceso</a><a href="#checklist">Qué revisamos</a><a href="#extras">Tarifas</a><a href="#faq">Preguntas</a></nav>
     <p class="footer__legal">La inspección es visual y no destructiva y refleja el estado de la vivienda a la fecha de la visita. Las estimaciones de coste son orientativas y no constituyen presupuesto de obra vinculante.</p>
   </div>
   <div class="wrap footer__bot">© <span id="year"></span> Peritae. Todos los derechos reservados.</div>

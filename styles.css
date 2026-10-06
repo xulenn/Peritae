@@ -285,3 +285,42 @@ em{font-style:italic;color:var(--accent)}
   .report{transform:none}
   .footer__in{grid-template-columns:1fr}
 }
+
+/* tarifas */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:34px}
+.svc{border:1px solid var(--line);border-radius:22px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:12px;transition:.25s}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.svc--main{background:linear-gradient(160deg,var(--ink),var(--ink-3));border:0;color:#d7e2e0}
+.svc--main h3{color:#fff}.svc--main p{color:#b9cac8}
+.svc h3{font-size:1.45rem}
+.svc p{color:var(--muted);font-size:.96rem}
+.svc__from{margin-top:auto;padding-top:14px;font-size:.85rem;color:var(--muted)}
+.svc--main .svc__from{color:#9fb3b1}
+.svc__from b{display:block;font:500 2.3rem var(--serif);color:var(--accent);line-height:1.1}
+.calc{background:var(--stone);border-radius:26px;padding:36px}
+.calc__in{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:34px;align-items:start}
+.calc fieldset{border:0}
+.calc legend{font-weight:700;color:var(--ink);margin-bottom:14px;font-size:.95rem}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;font-size:.95rem;transition:.2s}
+.opt:hover{border-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);box-shadow:0 0 0 3px rgba(217,115,63,.15)}
+.opt input{accent-color:var(--accent);width:18px;height:18px;flex:none}
+.opt b{margin-left:auto;color:var(--ink);white-space:nowrap}
+.calc__total{background:var(--ink);color:#d7e2e0;border-radius:20px;padding:26px}
+.calc__total small{color:#9fb3b1}
+.calc__total strong{display:block;font:500 3rem var(--serif);color:#fff;line-height:1.1;margin:4px 0 14px}
+.calc__total ul{display:grid;gap:8px;margin-bottom:20px;font-size:.88rem}
+.calc__total li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:8px}
+.calc__note{margin-top:22px;font-size:.8rem;color:var(--muted)}
+.cta__contact{margin-top:34px;display:grid;gap:12px}
+.cta__contact a,.cta__contact span{display:flex;align-items:center;gap:12px;color:#fff;font-weight:500}
+.cta__contact span{color:#9fb3b1;font-weight:400;font-size:.92rem}
+.cta__contact svg{width:22px;height:22px;fill:none;stroke:var(--accent-2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cta__contact a:hover{color:var(--accent-2)}
+.footer a:hover{color:#fff}
+@media (max-width:1020px){.services{grid-template-columns:1fr}.calc__in{grid-template-columns:1fr}}
+@media (max-width:760px){.calc{padding:22px}}
+.svc.svc--main p{color:#c3d3d1}
+.svc.svc--main .svc__from{color:#9fb3b1}
+.calc__total li span{min-width:0}
