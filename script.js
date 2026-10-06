@@ -2,7 +2,7 @@
   'use strict';
 
   // Contact email used by the request form (mailto). Replace with the real one.
-  const CONTACT_EMAIL = 'hola@peritae.eus';
+  const CONTACT_EMAIL = 'jaimegomezmata72@gmail.com';
 
   const BLOCKS = [
     { n: 1, t: 'Estructura y elementos constructivos', p: '≈25 puntos',
@@ -132,7 +132,7 @@
   const SERVICES = [
     { id: 'informe', n: 'Informe Peritae', p: [329, 369, 419, 499], req: true },
     { id: 'cee', n: 'Certificado de eficiencia energética', p: [95, 125, 155, 195] },
-    { id: 'pre', n: 'Pre-informe IA', p: [69, 89, 99, 119] }
+    { id: 'pre', n: 'Estudio de reforma con IA', p: [69, 89, 99, 119] }
   ];
   const eur = (n) => n.toLocaleString('es-ES') + ' €';
   const sizeBox = document.getElementById('calcSize');
@@ -176,8 +176,8 @@
     f.m2.value = SIZES[state.size];
     const has = (id) => state.svc.has(id);
     const label = has('informe')
-      ? (has('cee') && has('pre') ? 'Informe + Certificado + Pre-informe IA' : has('cee') ? 'Informe Peritae + Certificado energético' : has('pre') ? 'Informe Peritae + Pre-informe IA' : 'Informe Peritae')
-      : (has('cee') && has('pre') ? null : has('cee') ? 'Solo Certificado energético' : has('pre') ? 'Solo Pre-informe IA' : null);
+      ? (has('cee') && has('pre') ? 'Informe + Certificado + Estudio de reforma con IA' : has('cee') ? 'Informe Peritae + Certificado energético' : has('pre') ? 'Informe Peritae + Estudio de reforma con IA' : 'Informe Peritae')
+      : (has('cee') && has('pre') ? null : has('cee') ? 'Solo Certificado energético' : has('pre') ? 'Solo Estudio de reforma con IA' : null);
     if (label) f.servicio.value = label;
   });
 
